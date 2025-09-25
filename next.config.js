@@ -3,98 +3,42 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   
-  // Image optimization
-  images: {
-    domains: ['localhost', 'vercel.app'],
-    formats: ['image/webp', 'image/avif'],
+  // Ensure CSS is properly loaded
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+    };
+    return config;
   },
   
   // Environment variables
   env: {
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
     COLLEGE_SCORECARD_API_KEY: process.env.COLLEGE_SCORECARD_API_KEY,
     CAREERONESTOP_API_KEY: process.env.CAREERONESTOP_API_KEY,
-    FEDERAL_AID_API_KEY: process.env.FEDERAL_AID_API_KEY,
+    CAREERONESTOP_USER_ID: process.env.CAREERONESTOP_USER_ID,
+    OLLAMA_API_URL: process.env.OLLAMA_API_URL || 'http://localhost:11434',
   },
   
-  // Headers for security
+  // Headers for API calls
   async headers() {
     return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
       {
         source: '/api/:path*',
         headers: [
           {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, PUT, DELETE, OPTIONS',
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type, Authorization',
+            key: 'Cache-Control',
+            value: 'no-store, max-age=0',
           },
         ],
       },
     ];
   },
   
-  // Redirects
-  async redirects() {
-    return [
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/search',
-        destination: '/',
-        permanent: false,
-      },
-    ];
+  // Rewrites for API proxying if needed
+  async rewrites() {
+    return [];
   },
-  
-  // Webpack configuration for Vercel
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Optimization for bundle size
-    config.optimization = {
-      ...config.optimization,
-      moduleIds: 'deterministic',
-    };
-    
-    return config;
-  },
-  
-  // Output configuration for deployment
-  output: 'standalone',
-  
-  // Compression
-  compress: true,
-  
-  // Power by header
-  poweredByHeader: false,
 };
 
 module.exports = nextConfig;
