@@ -1,0 +1,30 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_APP_URL": "@next_public_app_url",
+      "COLLEGE_SCORECARD_API_KEY": "@college_scorecard_api_key",
+      "CAREERONESTOP_API_KEY": "@careeronestop_api_key",
+      "CAREERONESTOP_USER_ID": "@careeronestop_user_id",
+      "OLLAMA_API_URL": "@ollama_api_url"
+    }
+  },
+  "functions": {
+    "pages/api/scholarships/search.ts": {
+      "maxDuration": 30
+    },
+    "pages/api/scholarships/college-scorecard.ts": {
+      "maxDuration": 20
+    },
+    "pages/api/scholarships/career-one-stop.ts": {
+      "maxDuration": 20
+    }
+  }
+}
