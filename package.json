@@ -1,17 +1,41 @@
 {
   "name": "scholarship-scraper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "AI-powered scholarship matching platform that connects students with relevant opportunities",
+  "keywords": ["scholarships", "education", "ai", "nextjs", "vercel", "students"],
+  "homepage": "https://github.com/PranavAchar01/scholarship_scraper",
+  "bugs": {
+    "url": "https://github.com/PranavAchar01/scholarship_scraper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PranavAchar01/scholarship_scraper.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Pranav Achar",
+    "email": "pranav@example.com",
+    "url": "https://github.com/PranavAchar01"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "deploy:vercel": "chmod +x scripts/deploy-vercel.sh && ./scripts/deploy-vercel.sh",
+    "setup:dev": "chmod +x scripts/setup-dev.sh && ./scripts/setup-dev.sh",
+    "backup:db": "chmod +x scripts/backup-db.sh && ./scripts/backup-db.sh",
     "docker:build": "docker build -t scholarship-scraper .",
-    "docker:run": "docker run -p 3000:3000 scholarship-scraper"
+    "docker:run": "docker run -p 3000:3000 scholarship-scraper",
+    "docker:dev": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "clean": "rm -rf .next node_modules/.cache"
   },
   "dependencies": {
     "next": "14.0.0",
@@ -39,6 +63,23 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/jest-dom": "^5.16.0"
+    "@testing-library/jest-dom": "^5.16.0",
+    "@testing-library/user-event": "^14.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
