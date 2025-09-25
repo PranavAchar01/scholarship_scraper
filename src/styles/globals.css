@@ -14,7 +14,7 @@
   
   /* Focus styles for accessibility */
   *:focus {
-    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
   }
   
   /* Custom scrollbar */
@@ -38,15 +38,15 @@
 @layer components {
   /* Form components */
   .form-input {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
   }
   
   .form-select {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
   }
   
   .form-textarea {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
   }
   
   /* Card components */
@@ -71,8 +71,8 @@
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
   
-  .badge-primary {
-    @apply bg-primary-100 text-primary-800;
+  .badge-blue {
+    @apply bg-blue-100 text-blue-800;
   }
   
   .badge-green {
@@ -201,33 +201,16 @@
   }
 }
 
-/* Dark mode support (future enhancement) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-  
-  /* Uncomment when adding dark mode support
-  body {
-    @apply bg-gray-900 text-gray-100;
-  }
-  
-  .card {
-    @apply bg-gray-800 border-gray-700;
-  }
-  */
-}
-
 /* Focus visible for better accessibility */
 .focus-visible:focus {
-  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
 }
 
 /* Custom selection colors */
 ::selection {
-  @apply bg-primary-100 text-primary-900;
+  @apply bg-blue-100 text-blue-900;
 }
 
 ::-moz-selection {
-  @apply bg-primary-100 text-primary-900;
+  @apply bg-blue-100 text-blue-900;
 }
