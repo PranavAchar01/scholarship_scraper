@@ -1,7 +1,5 @@
-# Force Vercel to use latest commit
-# Created: 2025-09-25
-# Latest commit should include pages directory
-# This file forces a fresh build with latest code
+# Rebuild trigger for Vercel
+# Last updated: 2025-09-25T05:15:00Z
+# This file forces a rebuild on Vercel
 
-Build timestamp: 2025-09-25T02:55:00Z
-Commit: Latest with pages directory fix
+REBUILD_ID=2025-09-25-fix-tailwind
