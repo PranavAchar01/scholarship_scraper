@@ -1,0 +1,7 @@
+# Force Vercel to use latest commit
+# Created: 2025-09-25
+# Latest commit should include pages directory
+# This file forces a fresh build with latest code
+
+Build timestamp: 2025-09-25T02:55:00Z
+Commit: Latest with pages directory fix
